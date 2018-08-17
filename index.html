@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Seinfeld Quote Generator</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+        <img src="src/img/seinfeld_cover.jpg" alt="seinfeld characters" class="img-header">
+        <h1>Seinfeld Quote Generator</h1>
+    </header>
+    <div class="quote-section">
+      <div>
+        <select name="" id="quote-select">
+          <optgroup label="Who would you like a quote from?">
+            <option value="all">Anyone</option>
+            <option value="jerry">Jerry</option>
+            <option value="george">George</option>
+            <option value="elaine">Elaine</option>
+            <option value="kramer">Kramer</option>
+          </optgroup>
+        </select>
+        <button id="quote-btn">Giddyup</button>
+      </div>
+      <div class="quote">
+        <img src="src/img/george/george-1.jpg" alt="" class="img-quote">
+        <div class="quote-text">
+          <p>I'd rather be dating the blind. You know, you could let the house go. You could let yourself go. A good looking blind woman doesn't even know you're not good enough for her.</p>
+          <p>George: Season 7, Episode 4: "The Wink"</p>
+        </div>
+      </div>
+    </div>
+    <div class="synopsis-section">
+      <h3>Episode Synopsis</h3>
+      <p>Jerry squirts grapefruit into George's eye at breakfast, and for the rest of the day George is misinterpreted because everyone thinks he is winking at them</p>
+    </div>
+  </div>
+  <div class="footer">
+    <p>&copy <span id="date">2018</span> <a href="https://github.com/donatron" target="_blank">Don Macarthur<a></p>
+    <p>Built using the <a href="https://seinfeld-quotes.herokuapp.com/" target="_blank">Seinfeld Quote API</a> created by William DiFruscio</p>
+  </div>
+
+</body>
+</html>

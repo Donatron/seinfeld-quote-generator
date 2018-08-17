@@ -1,0 +1,11 @@
+{
+  "name": "seinfeld-quote-generator",
+  "version": "2.0.0",
+  "description": "Web app to display random quote from Seinfeld tv series, and accompanying episode information",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Don Macarthur",
+  "license": "ISC"
+}
