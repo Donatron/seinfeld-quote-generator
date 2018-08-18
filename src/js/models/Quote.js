@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export default class Quote {
   constructor(quote, author, season, episode) {
     this.quote = quote,
@@ -7,4 +5,5 @@ export default class Quote {
     this.season = season,
     this.episode = episode
   }
+
 }
