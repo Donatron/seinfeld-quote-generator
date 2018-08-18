@@ -75,6 +75,7 @@ QUOTE SECTION
 
 #quote-select {
   width: 150px;
+  height: 2em;
 }
 
 .quote-text {
