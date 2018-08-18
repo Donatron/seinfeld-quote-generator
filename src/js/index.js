@@ -55,6 +55,7 @@ elements.quoteButton.addEventListener('click', () => {
     quotesView.clearQuote();
     quotesView.renderQuote(state.quote);
     quotesView.renderQuoteDetails(state.quote);
+    quotesView.updateImage(state.quote);
   } else {
     // If filter is set, pull quotes from filteredQuotes array
     console.log(`Show my only quotes from ${state.filter}`)
