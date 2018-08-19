@@ -46,6 +46,11 @@ h1 {
   padding: 20px 0;
 }
 
+hr {
+  color: black;
+  width: 100%;
+}
+
 /**********************************
 QUOTE SECTION
 **********************************/
@@ -91,7 +96,8 @@ QUOTE SECTION
   height: 100px;
   width: auto;
   margin: 20px 30px 20px 0;
-  border-radius: 50%;
+  border-radius: 3px;
+  box-shadow: 1px 1px 8px 2px #cfcfcf;
 }
 
 /**********************************
@@ -114,10 +120,11 @@ FOOTER
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flecx;
   height: 60px;
   width: 60%;
   margin-left: 20%;
+  font-size: 0.75em;
 }
 
 .footer a {

@@ -61,3 +61,9 @@ const characterSwitch = (char) => {
       return 'generic/generic'
   }
 }
+
+export const filterQuotes = (array, character) => {
+
+  let filteredArray = array.filter(el => el.author.toLowerCase() === character);
+  return filteredArray;
+}

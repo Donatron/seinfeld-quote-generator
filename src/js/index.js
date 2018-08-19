@@ -1,4 +1,4 @@
-import Quotes from './models/Quote';
+import Quote from './models/Quote';
 import * as quotesView from './views/quotesView';
 import * as synopsisView from './views/synopsisView';
 import { elements } from './views/base';
@@ -48,20 +48,34 @@ elements.option.addEventListener("change", e => {
 
 // Handle quote button click
 elements.quoteButton.addEventListener('click', () => {
-  // 1. Check whether quotes are to be filtered by character
+  // Check whether quotes are to be filtered by character
   if (state.filter === '') {
     // If no filter pull quote from "quotes" array
     state.quote = quotesView.getRandomQuote(state.quotes);
+
+    let currentQuote = new Quote(state.quote, state.quote.author, state.quote.season, state.quote.episode);
+
+    // Update UI with quote details
     quotesView.clearQuote();
-    quotesView.renderQuote(state.quote);
-    quotesView.renderQuoteDetails(state.quote);
-    quotesView.updateImage(state.quote);
+    quotesView.renderQuote(currentQuote.quote);
+    quotesView.renderQuoteDetails(currentQuote.quote);
+    quotesView.updateImage(currentQuote.quote);
   } else {
-    // If filter is set, pull quotes from filteredQuotes array
-    console.log(`Show my only quotes from ${state.filter}`)
+    // If filter is set, filter quotes by character
+    state.filteredQuotes = quotesView.filterQuotes(state.quotes, state.filter);
+
+    // Pull quote from "filteredQuotes" array
+    state.quote = quotesView.getRandomQuote(state.filteredQuotes);
+
+    let currentQuote = new Quote(state.quote, state.quote.author, state.quote.season, state.quote.episode);
+
+    // Update UI with quote details
+    quotesView.clearQuote();
+    quotesView.renderQuote(currentQuote.quote);
+    quotesView.renderQuoteDetails(currentQuote.quote);
+    quotesView.updateImage(currentQuote.quote);
   }
 
-  // 4. Update UI with quote details
 });
 
 // Perform API calls on page load
