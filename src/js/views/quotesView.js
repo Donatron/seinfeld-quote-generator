@@ -36,6 +36,7 @@ export const updateImage = quote => {
 
   let imageSrc = `img/${imagePath}-${imageIndex}.jpg`;
   elements.quoteImage.setAttribute('src', imageSrc);
+  elements.quoteImage.style.visibility = 'visible';
 }
 
 const getImageIndex = () => {

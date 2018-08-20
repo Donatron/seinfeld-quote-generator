@@ -26,6 +26,26 @@ body {
   margin-bottom: 6em;
 }
 
+.loader {
+  margin: 3rem auto;
+  text-align: center; }
+  .loader svg {
+    height: 5.5rem;
+    width: 5.5rem;
+    fill: #e80034;
+    transform-origin: 44% 50%;
+    animation: rotate 1.5s infinite linear; }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(360deg); } }
+
+#instructions {
+  font-style: italic;
+}
+
 /**********************************
 HEADER
 **********************************/
@@ -93,7 +113,7 @@ QUOTE SECTION
 }
 
 .quote-text {
-  padding: 30px;
+  padding: 20px;
   width: 80%;
 }
 
@@ -108,6 +128,7 @@ QUOTE SECTION
   margin: 20px 30px 20px 0;
   border-radius: 3px;
   box-shadow: 1px 1px 8px 2px #cfcfcf;
+  visibility: hidden;
 }
 
 /**********************************

@@ -14,7 +14,8 @@ export const renderSynopsis = (season, episode, episodesArray) => {
   let thisEpisode = episodesArray.filter(el => parseInt(el.season) === parseInt(season) && parseInt(el.number) === parseInt(episode));
 
   const html = `
-    ${thisEpisode[0].summary}
+    <h3>Episode Synopsis</h3>
+    <p id="synopsis">${thisEpisode[0].summary}</p>
   `;
 
   elements.synopsis.insertAdjacentHTML('beforeend', html);

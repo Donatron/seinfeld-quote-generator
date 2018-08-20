@@ -1,7 +1,7 @@
 import Quote from './models/Quote';
 import * as quotesView from './views/quotesView';
 import * as synopsisView from './views/synopsisView';
-import { elements } from './views/base';
+import { elements, renderLoader, clearLoader } from './views/base';
 import axios from 'axios';
 
 /**
@@ -24,9 +24,12 @@ Quotes Controller
 **/
 
 const getAllQuotes = async () => {
+  renderLoader(elements.quoteText);
   try {
     const response = await axios('https://seinfeld-quotes.herokuapp.com/quotes');
     state.quotes = await response.data.quotes;
+    clearLoader();
+    displayUserInstructions();
   } catch (error) {
     console.log(error);
   }
@@ -39,6 +42,18 @@ const getAllEpisodes = async () => {
   } catch (error) {
     console.log(error);
   }
+}
+
+const displayUserInstructions = () => {
+  const markup = `
+    <div id="instructions">
+      <p>Click the button to view random quotes from Seinfeld.</p>
+      <p>To see quotes by your favourite character, select from the drop down list</p><br>
+      <p>Thanks for stopping by. Hope you enjoy the site! :-)</p>
+    </div>
+  `
+
+  elements.quoteText.insertAdjacentHTML('beforeend', markup);
 }
 
 // EVENT LISTENERS
