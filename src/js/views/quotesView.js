@@ -1,4 +1,4 @@
-import { elements } from './base.js';
+import { elements } from './base';
 
 export const renderQuote = quote => {
   const markup = `
@@ -16,7 +16,7 @@ export const clearQuote = () => {
 
 export const renderQuoteDetails = quote => {
   const markup = `
-     <p>${quote.author}: Season ${quote.season}, Episode ${quote.episode} - "The Marine Biologist"</p>
+     <p>${quote.author}: Season ${quote.season}, Episode ${quote.episode} </p>
   `;
 
   elements.quoteText.insertAdjacentHTML('beforeend', markup);

@@ -32,8 +32,13 @@ const getAllQuotes = async () => {
   }
 }
 
-const controlQuotes = async () => {
-  // Generate random quote
+const getAllEpisodes = async () => {
+  try {
+    const response = await axios('https://cors-anywhere.herokuapp.com/http://api.tvmaze.com/shows/530/episodes');
+    state.episodes = await response.data;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // EVENT LISTENERS
@@ -60,6 +65,15 @@ elements.quoteButton.addEventListener('click', () => {
     quotesView.renderQuote(currentQuote.quote);
     quotesView.renderQuoteDetails(currentQuote.quote);
     quotesView.updateImage(currentQuote.quote);
+
+    // Update episode and season for use of tvmaze API episode information
+    state.episode = currentQuote.episode;
+    state.season = currentQuote.season;
+
+    //Render episode synopsis
+    synopsisView.clearSynopsis();
+    synopsisView.renderEpisodeName(state.season, state.episode, state.episodes);
+    synopsisView.renderSynopsis(state.season, state.episode, state.episodes);
   } else {
     // If filter is set, filter quotes by character
     state.filteredQuotes = quotesView.filterQuotes(state.quotes, state.filter);
@@ -74,6 +88,15 @@ elements.quoteButton.addEventListener('click', () => {
     quotesView.renderQuote(currentQuote.quote);
     quotesView.renderQuoteDetails(currentQuote.quote);
     quotesView.updateImage(currentQuote.quote);
+
+    // Update episode and season for use of tvmaze API episode information
+    state.episode = currentQuote.episode;
+    state.season = currentQuote.season;
+
+    //Render episode synopsis
+    synopsisView.clearSynopsis();
+    synopsisView.renderEpisodeName(state.season, state.episode, state.episodes);
+    synopsisView.renderSynopsis(state.season, state.episode, state.episodes);
   }
 
 });
@@ -81,4 +104,5 @@ elements.quoteButton.addEventListener('click', () => {
 // Perform API calls on page load
 window.addEventListener('load', () => {
   getAllQuotes();
+  getAllEpisodes();
 });
