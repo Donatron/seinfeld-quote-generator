@@ -1,5 +1,5 @@
-node_modules
-
-mockups
-
-src
+/node_modules
+/mockups
+npm-debug.log
+.DS_Store
+/*.env
