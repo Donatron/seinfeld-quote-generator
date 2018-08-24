@@ -2,11 +2,12 @@
   "name": "seinfeld-quote-generator",
   "version": "2.0.0",
   "description": "Web app to display random quote from Seinfeld tv series, and accompanying episode information",
-  "main": "bundle.js",
+  "main": "script.js",
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack-dev-server --mode development --open",
+    "deploy": "npm run build && git subtree push --prefix dist origin gh-pages"
   },
   "author": "Don Macarthur",
   "license": "ISC",
