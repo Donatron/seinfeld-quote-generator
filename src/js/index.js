@@ -1,7 +1,7 @@
 import Quote from './models/Quote';
 import * as quotesView from './views/quotesView';
 import * as synopsisView from './views/synopsisView';
-import { elements, renderLoader, clearLoader } from './views/base';
+import { elements, renderLoader, clearLoader, getDate } from './views/base';
 import axios from 'axios';
 
 /**
@@ -120,4 +120,5 @@ elements.quoteButton.addEventListener('click', () => {
 window.addEventListener('load', () => {
   getAllQuotes();
   getAllEpisodes();
+  elements.date.textContent = getDate();
 });
