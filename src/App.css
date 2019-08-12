@@ -30,16 +30,10 @@ body {
   margin-bottom: 6em;
 }
 
-.loader {
-  margin: 3rem auto;
-  text-align: center;
-}
-.loader svg {
-  height: 5.5rem;
-  width: 5.5rem;
-  fill: #e80034;
-  transform-origin: 44% 50%;
-  animation: rotate 1.5s infinite linear;
+.Spinner img {
+  margin-top: 3rem;
+  height: 6rem;
+  width: auto;
 }
 
 @keyframes rotate {
@@ -143,7 +137,6 @@ QUOTE SECTION
   margin: 20px 30px 20px 0;
   border-radius: 3px;
   box-shadow: 1px 1px 8px 2px #cfcfcf;
-  visibility: hidden;
 }
 
 /**********************************
@@ -169,7 +162,6 @@ FOOTER
   justify-content: flex-end;
   height: 60px;
   width: 60%;
-  margin-left: 20%;
   font-size: 0.75em;
 }
 
