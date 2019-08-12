@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import Synopsis from "./Synopsis";
+
 class QuoteDetail extends Component {
   renderCharacterSwitch(character) {
     switch (character) {
@@ -29,18 +31,21 @@ class QuoteDetail extends Component {
 
   render() {
     const { quote, author, season, episode } = this.props.quote;
+    const { selectedEpisode } = this.props;
 
     const character = author ? author : "";
 
     const renderedQuote = quote ? (
-      <div class="quote">
-        <img src={this.renderImage(character)} alt="" class="img-quote" />
-        <div class="quote-text">
+      <div className="quote">
+        <img src={this.renderImage(character)} alt="" className="img-quote" />
+        <div className="quote-text">
           <p>{quote}</p>
           <p id="quote-details">
             {author}: Season {season}, Episode {episode}
           </p>
-          <p id="episode-name">Episode title goes here from IMDB</p>
+          <p id="episode-name">
+            <em>"{selectedEpisode ? selectedEpisode[0].name : ""}"</em>
+          </p>
         </div>
       </div>
     ) : (
@@ -58,6 +63,11 @@ class QuoteDetail extends Component {
     return (
       <div className="Quote-Detail">
         <div className="quote-text">{renderedQuote}</div>
+        {this.props.selectedEpisode.length ? (
+          <Synopsis episode={this.props.selectedEpisode[0]} />
+        ) : (
+          ""
+        )}
       </div>
     );
   }
@@ -65,7 +75,8 @@ class QuoteDetail extends Component {
 
 const mapStateToProps = state => {
   return {
-    quote: state.quotes.randomQuote
+    quote: state.quotes.randomQuote,
+    selectedEpisode: state.episodes.selectedEpisode
   };
 };
 

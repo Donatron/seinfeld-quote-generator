@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchQuotes } from "./actions";
+import { fetchQuotes, fetchEpisodes } from "./actions";
 
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -11,6 +11,7 @@ import Footer from "./components/Footer/Footer";
 class App extends Component {
   componentDidMount() {
     this.props.fetchQuotes();
+    this.props.fetchEpisodes();
   }
   render() {
     const { quotes } = this.props;
@@ -36,5 +37,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchQuotes }
+  { fetchQuotes, fetchEpisodes }
 )(App);

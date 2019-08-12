@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <p>
-        &copy <span id="date" />{" "}
+        {"\u00A9"} {new Date().getFullYear()}{" "}
         <a href="https://donatron.github.io/portfolio/" target="_blank">
           Don Macarthur
         </a>

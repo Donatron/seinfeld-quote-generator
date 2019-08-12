@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { selectCharacter, getRandomQuote } from "../../actions";
+import { selectCharacter, getRandomQuote, selectEpisode } from "../../actions";
 
 class QuoteGenerator extends Component {
   handleChange = e => {
@@ -8,7 +8,7 @@ class QuoteGenerator extends Component {
   };
 
   handleClick = e => {
-    const { quotes, character } = this.props;
+    const { quotes, character, episodes } = this.props;
 
     let quote;
 
@@ -49,7 +49,8 @@ class QuoteGenerator extends Component {
 const mapStateToProps = state => {
   return {
     quotes: state.quotes.quotes,
-    character: state.quotes.character
+    character: state.quotes.character,
+    episodes: state.episodes.episodes
   };
 };
 
