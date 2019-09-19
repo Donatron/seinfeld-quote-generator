@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/seinfeld-quote-generator/static/css/main.a7c0de3f.chunk.css",
-    "main.js": "/seinfeld-quote-generator/static/js/main.236eac6c.chunk.js",
-    "main.js.map": "/seinfeld-quote-generator/static/js/main.236eac6c.chunk.js.map",
+    "main.js": "/seinfeld-quote-generator/static/js/main.8d3aede3.chunk.js",
+    "main.js.map": "/seinfeld-quote-generator/static/js/main.8d3aede3.chunk.js.map",
     "runtime~main.js": "/seinfeld-quote-generator/static/js/runtime~main.3bcc5baf.js",
     "runtime~main.js.map": "/seinfeld-quote-generator/static/js/runtime~main.3bcc5baf.js.map",
     "static/js/2.61dbc607.chunk.js": "/seinfeld-quote-generator/static/js/2.61dbc607.chunk.js",
     "static/js/2.61dbc607.chunk.js.map": "/seinfeld-quote-generator/static/js/2.61dbc607.chunk.js.map",
     "index.html": "/seinfeld-quote-generator/index.html",
-    "precache-manifest.d10ff8aa35913dc964ae5f3c9e5d107d.js": "/seinfeld-quote-generator/precache-manifest.d10ff8aa35913dc964ae5f3c9e5d107d.js",
+    "precache-manifest.fe03ffd9551372abbd638c55650d6b37.js": "/seinfeld-quote-generator/precache-manifest.fe03ffd9551372abbd638c55650d6b37.js",
     "service-worker.js": "/seinfeld-quote-generator/service-worker.js",
     "static/css/main.a7c0de3f.chunk.css.map": "/seinfeld-quote-generator/static/css/main.a7c0de3f.chunk.css.map",
     "static/media/elaine-1.jpg": "/seinfeld-quote-generator/static/media/elaine-1.a0c5de38.jpg",
