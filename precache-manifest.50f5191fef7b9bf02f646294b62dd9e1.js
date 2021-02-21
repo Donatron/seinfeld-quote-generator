@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1b3ab969cf50fb7e34d9745c4c9b9b54",
+    "revision": "b35cf92d69cfdb39a92e1d4634292fdf",
     "url": "/seinfeld-quote-generator/index.html"
   },
   {
-    "revision": "5df7ac8e69c6589935cc",
-    "url": "/seinfeld-quote-generator/static/css/main.a7c0de3f.chunk.css"
+    "revision": "a68b8f5b639405d07857",
+    "url": "/seinfeld-quote-generator/static/css/main.dc80ae6c.chunk.css"
   },
   {
     "revision": "9d3a1afa9bcb569e0f32",
     "url": "/seinfeld-quote-generator/static/js/2.61dbc607.chunk.js"
   },
   {
-    "revision": "5df7ac8e69c6589935cc",
-    "url": "/seinfeld-quote-generator/static/js/main.8d3aede3.chunk.js"
+    "revision": "a68b8f5b639405d07857",
+    "url": "/seinfeld-quote-generator/static/js/main.6c99d0d2.chunk.js"
   },
   {
     "revision": "eb6a3335770446553c6a",
