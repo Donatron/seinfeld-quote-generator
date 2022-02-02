@@ -85,11 +85,26 @@ QUOTE SECTION
 **********************************/
 
 .Quote-Generator {
-  text-align: left;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.Quote-Generator button {
+  margin: 0 15px;
 }
 
 .quote-section {
   margin-bottom: 60px;
+}
+
+.Quote-Detail .row {
+  padding: 30px;
+}
+
+.Quote_Detail .quote .card img {
+  height: 80px;
+  width: auto;
 }
 
 .quote-section,
@@ -114,6 +129,11 @@ QUOTE SECTION
   border-radius: 3px;
   color: white;
   transition: all 0.2s ease-in;
+}
+
+.dropdown button {
+  font-size: 1.25rem;
+  padding: 8px 12px;
 }
 
 #quote-btn:focus {

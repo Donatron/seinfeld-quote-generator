@@ -1,10 +1,25 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {
+  Card,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  CardText,
+  Row,
+  Col
+} from 'reactstrap';
 
 import Synopsis from "./Synopsis";
+import { Quote, Episode } from '../../models'
 
-class QuoteDetail extends Component {
-  renderCharacterSwitch(character) {
+interface Props {
+  quote: Quote,
+  selectedEpisode: Episode[]
+}
+
+class QuoteDetail extends Component<Props> {
+  renderCharacterSwitch(character: string): string {
     switch (character) {
       case "Jerry":
         return "jerry";
@@ -19,7 +34,7 @@ class QuoteDetail extends Component {
     }
   }
 
-  renderImage = (character = null) => {
+  renderImage = (character: string = ""): string => {
     let index = Math.ceil(Math.random() * 5);
 
     let imageCharacter = this.renderCharacterSwitch(character);
@@ -33,20 +48,23 @@ class QuoteDetail extends Component {
     const { quote, author, season, episode } = this.props.quote;
     const { selectedEpisode } = this.props;
 
-    const character = author ? author : "";
-
-    const renderedQuote = quote ? (
+    const renderedQuote: JSX.Element = quote ? (
       <div className="quote">
-        <img src={this.renderImage(character)} alt="" className="img-quote" />
-        <div className="quote-text">
-          <p>{quote}</p>
-          <p id="quote-details">
-            {author}: Season {season}, Episode {episode}
-          </p>
-          <p id="episode-name">
-            <em>"{selectedEpisode ? selectedEpisode[0].name : ""}"</em>
-          </p>
-        </div>
+        <Card>
+          <img
+            src={this.renderImage(author)} alt={author}
+            width="100%"
+            className="quote-image"
+          />
+          <CardBody>
+            <CardText>
+              {quote}
+            </CardText>
+            <CardTitle tag="h5">
+              {author}
+            </CardTitle>
+          </CardBody>
+        </Card>
       </div>
     ) : (
       <div id="instructions">
@@ -62,18 +80,35 @@ class QuoteDetail extends Component {
 
     return (
       <div className="Quote-Detail">
-        <div className="quote-text">{renderedQuote}</div>
-        {this.props.selectedEpisode.length ? (
-          <Synopsis episode={this.props.selectedEpisode[0]} />
-        ) : (
-          ""
-        )}
+        <Row>
+          <Col
+            xs={12}
+            md={{
+              size: 4,
+              offset: 2
+            }}
+          >
+            {renderedQuote}
+          </Col>
+          <Col
+            xs={12}
+            md={{
+              size: 4,
+            }}
+          >
+            {this.props.selectedEpisode.length ? (
+              <Synopsis episode={this.props.selectedEpisode[0]} />
+            ) : (
+              ""
+            )}
+          </Col>
+        </Row>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     quote: state.quotes.randomQuote,
     selectedEpisode: state.episodes.selectedEpisode

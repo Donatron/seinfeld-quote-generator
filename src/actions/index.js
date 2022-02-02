@@ -23,9 +23,6 @@ export const fetchEpisodes = () => async dispatch => {
     "http://api.tvmaze.com/shows/530/episodes"
   );
 
-  console.log(response);
-
-
   dispatch({
     type: FETCH_EPISODES,
     payload: response.data

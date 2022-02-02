@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchQuotes, fetchEpisodes } from "./actions";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import Header from "./components/Header/Header";
 import Quote from "./components/Quote/Quote";

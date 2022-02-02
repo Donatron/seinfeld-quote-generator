@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {
+  Button,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from 'reactstrap';
 import { selectCharacter, getRandomQuote, selectEpisode } from "../../actions";
 
 class QuoteGenerator extends Component {
@@ -7,7 +14,8 @@ class QuoteGenerator extends Component {
     super(props);
 
     this.state = {
-      selectedCharacter: ""
+      selectedCharacter: "",
+      isDropdownOpen: false
     };
   }
   handleChange = e => {
@@ -37,26 +45,60 @@ class QuoteGenerator extends Component {
   };
 
   render() {
-    const { selectedCharacter } = this.state;
+    const { selectedCharacter, isDropdownOpen } = this.state;
     return (
       <div className="Quote-Generator">
-        <select
-          name=""
-          id="quote-select"
-          onChange={this.handleChange}
-          value={selectedCharacter}
+        <Dropdown
+          isOpen={isDropdownOpen}
+          toggle={() => this.setState({ ...this.state, isDropdownOpen: !isDropdownOpen })}
         >
-          <optgroup label="Who would you like a quote from?">
-            <option value="all">Anyone</option>
-            <option value="jerry">Jerry</option>
-            <option value="george">George</option>
-            <option value="elaine">Elaine</option>
-            <option value="kramer">Kramer</option>
-          </optgroup>
-        </select>
-        <button onClick={this.handleClick} id="quote-btn">
+          <DropdownToggle caret>
+            Get Quotes By Character
+          </DropdownToggle>
+          <DropdownMenu>
+            <DropdownItem header>
+              Character
+            </DropdownItem>
+            <DropdownItem
+              onClick={this.handleChange}
+              value="anyone"
+            >
+              Anyone
+            </DropdownItem>
+            <DropdownItem
+              onClick={this.handleChange}
+              value="jerry"
+            >
+              Jerry
+            </DropdownItem>
+            <DropdownItem
+              onClick={this.handleChange}
+              value="george"
+            >
+              George
+            </DropdownItem>
+            <DropdownItem
+              onClick={this.handleChange}
+              value="elaine"
+            >
+              Elaine
+            </DropdownItem>
+            <DropdownItem
+              onClick={this.handleChange}
+              value="kramer"
+            >
+              Kramer
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+
+        <Button
+          color="success"
+          size="lg"
+          onClick={this.handleClick}
+        >
           Giddyup
-        </button>
+        </Button>
       </div>
     );
   }
