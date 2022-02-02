@@ -20,8 +20,11 @@ export const fetchQuotes = () => async dispatch => {
 
 export const fetchEpisodes = () => async dispatch => {
   const response = await axios.get(
-    "https://cors-anywhere.herokuapp.com/http://api.tvmaze.com/shows/530/episodes"
+    "http://api.tvmaze.com/shows/530/episodes"
   );
+
+  console.log(response);
+
 
   dispatch({
     type: FETCH_EPISODES,

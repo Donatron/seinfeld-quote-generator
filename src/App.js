@@ -20,7 +20,6 @@ class App extends Component {
       <div className="App">
         <div className="wrapper">
           <Header />
-
           {quotes.length ? <Quote /> : <Spinner />}
           <Footer />
         </div>

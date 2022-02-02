@@ -3,8 +3,18 @@ import { connect } from "react-redux";
 import { selectCharacter, getRandomQuote, selectEpisode } from "../../actions";
 
 class QuoteGenerator extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selectedCharacter: ""
+    };
+  }
   handleChange = e => {
     this.props.selectCharacter(e.target.value);
+    this.setState({
+      selectedCharacter: e.target.value
+    });
   };
 
   handleClick = e => {
@@ -27,9 +37,15 @@ class QuoteGenerator extends Component {
   };
 
   render() {
+    const { selectedCharacter } = this.state;
     return (
       <div className="Quote-Generator">
-        <select name="" id="quote-select" onChange={this.handleChange} value="">
+        <select
+          name=""
+          id="quote-select"
+          onChange={this.handleChange}
+          value={selectedCharacter}
+        >
           <optgroup label="Who would you like a quote from?">
             <option value="all">Anyone</option>
             <option value="jerry">Jerry</option>

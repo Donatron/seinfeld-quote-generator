@@ -18,29 +18,36 @@ body {
 
 .wrapper {
   width: 90%;
+  min-height: 100vh;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 6em;
+  background-color: red;
 }
 
 .loader {
   margin: 3rem auto;
-  text-align: center; }
-  .loader svg {
-    height: 5.5rem;
-    width: 5.5rem;
-    fill: #e80034;
-    transform-origin: 44% 50%;
-    animation: rotate 1.5s infinite linear; }
+  text-align: center;
+}
+.loader svg {
+  height: 5.5rem;
+  width: 5.5rem;
+  fill: #e80034;
+  transform-origin: 44% 50%;
+  animation: rotate 1.5s infinite linear;
+}
 
 @keyframes rotate {
   0% {
-    transform: rotate(0); }
+    transform: rotate(0);
+  }
   100% {
-    transform: rotate(360deg); } }
+    transform: rotate(360deg);
+  }
+}
 
 #instructions {
   font-style: italic;
@@ -142,7 +149,6 @@ SYNOPSIS SECTION
   margin-bottom: 1em;
 }
 
-
 /**********************************
 FOOTER
 **********************************/
@@ -197,7 +203,6 @@ FOOTER
 }
 
 @media screen and (max-width: 400px) {
-
   .wrapper {
     width: 100%;
     padding: 0 8px;
