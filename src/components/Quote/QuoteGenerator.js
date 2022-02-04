@@ -7,7 +7,7 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
-import { selectCharacter, getRandomQuote, selectEpisode } from "../../actions";
+import { selectCharacter, getRandomQuote } from "../../actions";
 
 class QuoteGenerator extends Component {
   constructor(props) {
@@ -26,11 +26,11 @@ class QuoteGenerator extends Component {
   };
 
   handleClick = e => {
-    const { quotes, character, episodes } = this.props;
+    const { quotes, character } = this.props;
 
     let quote;
 
-    if (character === "") {
+    if (character === "" || character === "all") {
       const index = Math.floor(Math.random() * quotes.length);
       quote = quotes[index];
     } else {
@@ -45,7 +45,7 @@ class QuoteGenerator extends Component {
   };
 
   render() {
-    const { selectedCharacter, isDropdownOpen } = this.state;
+    const { isDropdownOpen } = this.state;
     return (
       <div className="Quote-Generator">
         <Dropdown
@@ -61,7 +61,7 @@ class QuoteGenerator extends Component {
             </DropdownItem>
             <DropdownItem
               onClick={this.handleChange}
-              value="anyone"
+              value="all"
             >
               Anyone
             </DropdownItem>
@@ -91,7 +91,6 @@ class QuoteGenerator extends Component {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
-
         <Button
           color="success"
           size="lg"
