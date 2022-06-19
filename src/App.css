@@ -51,6 +51,7 @@ body {
 
 #instructions {
   font-style: italic;
+  margin-top: 60px;
 }
 
 /**********************************
@@ -94,6 +95,11 @@ QUOTE SECTION
   margin: 0 15px;
 }
 
+.quote-container {
+  height: 100%;
+  margin-bottom: 6em;
+}
+
 .quote-section {
   margin-bottom: 60px;
 }
@@ -110,16 +116,37 @@ QUOTE SECTION
 .quote-section,
 .quote,
 .synopsis-section {
-  margin-left: 0;
+  /* margin-left: 0; */
+  margin: 15px auto;
+  margin-top: 15px;
   width: 600px;
 }
 
-.quote {
+.quote,
+.synopsis-section {
   width: auto;
   height: auto;
   min-height: 200px;
   display: flex;
   flex-direction: row;
+}
+
+.quote .card,
+.synopsis-section .card {
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 3px 3px 10px -5px rgba(0,0,0,0.55);
+  transition: all 0.2s ease-out;
+}
+
+.quote .card:hover,
+.synopsis-section .card:hover {
+  box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.55);
+}
+
+.dropdown-item:hover {
+  background-color: transparent;
+  color: green
 }
 
 #quote-btn {
@@ -132,7 +159,7 @@ QUOTE SECTION
 }
 
 .dropdown button {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   padding: 8px 12px;
 }
 
@@ -176,6 +203,17 @@ SYNOPSIS SECTION
   margin-bottom: 1em;
 }
 
+.quote .card img,
+.synopsis-section .card img {
+  filter: grayscale(0.5);
+  transition: all 0.2s ease-out;
+}
+
+.quote .card img:hover,
+.synopsis-section .card img:hover {
+  filter: grayscale(0)
+}
+
 /**********************************
 FOOTER
 **********************************/
@@ -199,7 +237,7 @@ FOOTER
   color: #e80034;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 760px) {
   h1 {
     font-size: 1.75em;
     padding: 10px 0;
@@ -209,7 +247,6 @@ FOOTER
   .quote,
   .synopsis-section {
     margin-left: 0;
-    width: 80%;
   }
 
   .quote {
@@ -220,8 +257,17 @@ FOOTER
     padding: 10px;
   }
 
+  .synopsis-section {
+    margin-top: 30px;
+  }
+
   .img-quote {
     margin: 10px 0;
+  }
+
+  .btn,
+  .dropdown button {
+    font-size: 1rem;
   }
 
   .footer {

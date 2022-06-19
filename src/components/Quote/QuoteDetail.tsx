@@ -20,10 +20,10 @@ class QuoteDetail extends Component<Props> {
       quote ? 
       <div className="Quote-Detail">
         <Row>
-          <Col xs={12} md={{size: 4,offset: 2}} >
+          <Col xs={12} md={{size: 6}} >
             <RenderedQuote quoteData={quote} />
           </Col>
-          <Col xs={12} md={{ size: 4,}}>
+          <Col xs={12} md={{ size: 6}}>
             {
             this.props.selectedEpisode.length ? (
               <Synopsis episode={this.props.selectedEpisode[0]} />

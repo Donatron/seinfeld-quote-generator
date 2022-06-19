@@ -6,7 +6,7 @@ import QuoteDetail from "./QuoteDetail";
 
 const Quote: React.FC = () => {
   return (
-    <Container>
+    <Container className="quote-container">
       <Row>
         <QuoteGenerator />
       </Row>

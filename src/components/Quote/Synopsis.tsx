@@ -22,6 +22,7 @@ const Synopsis: React.FC<Props> = ({ episode }) => {
           src={episode.image.original}
           width="100%"
           className="quote-image"
+          alt={episode.name}
         />
         <CardBody>
           <CardTitle tag="h5">
