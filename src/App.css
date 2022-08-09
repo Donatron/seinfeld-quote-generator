@@ -144,9 +144,13 @@ QUOTE SECTION
   box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.55);
 }
 
+.dropdown-item {
+  transition: all 0.2s ease-in;
+}
+
 .dropdown-item:hover {
   background-color: transparent;
-  color: green
+  color: #F02E51;
 }
 
 #quote-btn {
@@ -156,6 +160,31 @@ QUOTE SECTION
   border-radius: 3px;
   color: white;
   transition: all 0.2s ease-in;
+}
+
+.btn-secondary {
+  background-color: #F02E51;
+  border-color: #F02E51;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.show.btn-secondary.dropdown-toggle:focus {
+  background-color: #E00028 !important;
+  border-color: #E00028 !important;
+  box-shadow: none !important;
+}
+
+.btn-success {
+  background-color: #009B74;
+  border-color: #009B74;
+}
+
+.btn-success:hover,
+.btn-success:focus {
+  background-color: #006048;
+  border-color: #006048;
+  box-shadow: none !important;
 }
 
 .dropdown button {

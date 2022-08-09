@@ -8,6 +8,7 @@ import {
 } from 'reactstrap';
 import striptags from "striptags";
 
+import headerImage from "../../assets/img/seinfeld_cover.jpg";
 import { Episode } from '../../models';
 
 interface Props {
@@ -19,7 +20,7 @@ const Synopsis: React.FC<Props> = ({ episode }) => {
     <div className="Synopsis synopsis-section">
       <Card>
         <img
-          src={episode.image.original}
+          src={episode.image? episode.image.original : headerImage}
           width="100%"
           className="quote-image"
           alt={episode.name}

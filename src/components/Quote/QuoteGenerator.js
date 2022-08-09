@@ -44,6 +44,13 @@ class QuoteGenerator extends Component {
     this.props.getRandomQuote(quote);
   };
 
+  getDropDownLabel = () => {
+    const { character } = this.props;
+    const upperCaseCharacter = `${character.charAt(0).toUpperCase()}${character.slice(1)}` 
+    const label = character ? `${upperCaseCharacter} Quotes` : 'Get Quotes By Character';
+    return label;
+  }
+
   render() {
     const { isDropdownOpen } = this.state;
     return (
@@ -53,7 +60,7 @@ class QuoteGenerator extends Component {
           toggle={() => this.setState({ ...this.state, isDropdownOpen: !isDropdownOpen })}
         >
           <DropdownToggle caret>
-            Get Quotes By Character
+            {this.getDropDownLabel()}
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem header>
