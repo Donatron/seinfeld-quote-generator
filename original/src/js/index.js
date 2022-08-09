@@ -73,7 +73,7 @@ elements.option.addEventListener("change", e => {
 // Handle quote button click
 elements.quoteButton.addEventListener("click", () => {
   // Check whether quotes are to be filtered by character
-  if (state.filter === "") {
+  if (state.filter === "" || state.filter === "all") {
     // If no filter pull quote from "quotes" array
     state.quote = quotesView.getRandomQuote(state.quotes);
 

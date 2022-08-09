@@ -1,6 +1,6 @@
 import React from "react";
 
-const Spinner = () => {
+const Spinner: React.FC = () => {
   return (
     <div className="Spinner">
       <img src={require("./spinner.gif")} alt="loading spinner" />

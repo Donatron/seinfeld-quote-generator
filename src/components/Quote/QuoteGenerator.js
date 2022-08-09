@@ -1,13 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { selectCharacter, getRandomQuote, selectEpisode } from "../../actions";
+import {
+  Button,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from 'reactstrap';
+import { selectCharacter, getRandomQuote } from "../../actions";
 
 class QuoteGenerator extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      selectedCharacter: ""
+      selectedCharacter: "",
+      isDropdownOpen: false
     };
   }
   handleChange = e => {
@@ -18,11 +26,11 @@ class QuoteGenerator extends Component {
   };
 
   handleClick = e => {
-    const { quotes, character, episodes } = this.props;
+    const { quotes, character } = this.props;
 
     let quote;
 
-    if (character === "") {
+    if (character === "" || character === "all") {
       const index = Math.floor(Math.random() * quotes.length);
       quote = quotes[index];
     } else {
@@ -36,27 +44,67 @@ class QuoteGenerator extends Component {
     this.props.getRandomQuote(quote);
   };
 
+  getDropDownLabel = () => {
+    const { character } = this.props;
+    const upperCaseCharacter = `${character.charAt(0).toUpperCase()}${character.slice(1)}` 
+    const label = character ? `${upperCaseCharacter} Quotes` : 'Get Quotes By Character';
+    return label;
+  }
+
   render() {
-    const { selectedCharacter } = this.state;
+    const { isDropdownOpen } = this.state;
     return (
       <div className="Quote-Generator">
-        <select
-          name=""
-          id="quote-select"
-          onChange={this.handleChange}
-          value={selectedCharacter}
+        <Dropdown
+          isOpen={isDropdownOpen}
+          toggle={() => this.setState({ ...this.state, isDropdownOpen: !isDropdownOpen })}
         >
-          <optgroup label="Who would you like a quote from?">
-            <option value="all">Anyone</option>
-            <option value="jerry">Jerry</option>
-            <option value="george">George</option>
-            <option value="elaine">Elaine</option>
-            <option value="kramer">Kramer</option>
-          </optgroup>
-        </select>
-        <button onClick={this.handleClick} id="quote-btn">
+          <DropdownToggle caret>
+            {this.getDropDownLabel()}
+          </DropdownToggle>
+          <DropdownMenu>
+            <DropdownItem header>
+              Character
+            </DropdownItem>
+            <DropdownItem
+              onClick={this.handleChange}
+              value="all"
+            >
+              Anyone
+            </DropdownItem>
+            <DropdownItem
+              onClick={this.handleChange}
+              value="jerry"
+            >
+              Jerry
+            </DropdownItem>
+            <DropdownItem
+              onClick={this.handleChange}
+              value="george"
+            >
+              George
+            </DropdownItem>
+            <DropdownItem
+              onClick={this.handleChange}
+              value="elaine"
+            >
+              Elaine
+            </DropdownItem>
+            <DropdownItem
+              onClick={this.handleChange}
+              value="kramer"
+            >
+              Kramer
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+        <Button
+          color="success"
+          size="lg"
+          onClick={this.handleClick}
+        >
           Giddyup
-        </button>
+        </Button>
       </div>
     );
   }
